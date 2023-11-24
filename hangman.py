@@ -24,6 +24,10 @@ def list_letters():
 def insert_letter():
     print("Enter a letter ", end=" ")
     curr_letter = str(input())
+    if curr_letter.isalpha() == False or curr_letter.isupper() == True or len(curr_letter) != 1:
+        print("Invalid character!", end=" ")
+        return insert_letter()
+
     if curr_letter in list_of_said_letters:
         print("You already tried that letter! Try another one - ", end="")
         return insert_letter()
@@ -47,9 +51,9 @@ def play():
             print(fields)
 
         if player_letter in check_list:
-            check_list.remove(player_letter)
-            if player_letter in check_list:
-                check_list.remove(player_letter)
+            for i in range(0, len(keyword)):
+                if player_letter == keyword[i]:
+                    check_list.remove(player_letter)
 
             if len(check_list) == 0:
                 print(f"You guessed the word! - {keyword}")
@@ -84,6 +88,7 @@ def play():
             elif mistakes_counter == 7:
                 global right_leg
                 right_leg = "\\"
+                print(hanger())
                 print("You got hanged!")
                 print(f"The word was '{keyword}'.")
                 break
