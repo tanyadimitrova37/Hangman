@@ -16,6 +16,10 @@ def hanger():
           f" |   {left_arm}{body_upper}{right_arm} \n", f" |    {body_lower}\n",
           f" |   {left_leg} {right_leg} \n", "_|_")
 
+if not keyword.isalpha():
+    print("Invalid keyword! Please enter only one word without spaces or special characters.")
+    exit()
+
 def list_letters():
     for symbol in range(0, len(keyword)):
         list_of_letters.append(keyword[symbol])
