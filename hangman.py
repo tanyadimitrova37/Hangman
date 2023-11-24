@@ -97,6 +97,6 @@ def play():
                 print(f"The word was '{keyword}'.")
                 break
         print(f"Letters said: {list_of_said_letters}")
-        print(hanger())
+        hanger()
 
 play()
